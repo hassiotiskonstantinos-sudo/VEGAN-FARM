@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, MapPin, Calendar, CheckCircle } from "lucide-react";
 
@@ -73,6 +76,12 @@ const projects = [
 const categories = ["All", "Agriculture", "Urban Farming", "Education", "Research", "Conservation", "Food Security"];
 
 export default function ProjectsPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered = activeCategory === "All"
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -95,8 +104,10 @@ export default function ProjectsPage() {
             {categories.map((cat) => (
               <button
                 key={cat}
+                type="button"
+                onClick={() => setActiveCategory(cat)}
                 className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  cat === "All"
+                  activeCategory === cat
                     ? "bg-green-600 text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-green-50 hover:text-green-700"
                 }`}
@@ -111,8 +122,11 @@ export default function ProjectsPage() {
       {/* Projects */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {filtered.length === 0 ? (
+            <p className="text-center text-gray-400 py-20">No projects in this category yet.</p>
+          ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map((project) => (
+            {filtered.map((project) => (
               <div key={project.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
                 <div className="h-40 bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center text-7xl relative">
                   {project.image}
@@ -159,6 +173,7 @@ export default function ProjectsPage() {
               </div>
             ))}
           </div>
+          )}
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Heart, Leaf, Users, Globe, ArrowRight, CheckCircle, TrendingUp, Star } from "lucide-react";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const stats = [
   { label: "Farmers Trained", value: "2,400+", icon: Users },
@@ -254,10 +255,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Stay in the Loop</h2>
           <p className="text-gray-500 mb-6">Get monthly updates on our campaigns, success stories, and ways to get involved.</p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm" />
-            <button type="submit" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors whitespace-nowrap">Subscribe</button>
-          </form>
+          <NewsletterForm />
           <p className="text-xs text-gray-400 mt-3">No spam. Unsubscribe at any time.</p>
         </div>
       </section>

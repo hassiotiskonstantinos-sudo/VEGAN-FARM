@@ -19,12 +19,18 @@ export default function Footer() {
               Empowering communities through sustainable vegan farming, food sovereignty, and compassionate living.
             </p>
             <div className="flex gap-3">
-              {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/groups/759008432624505", label: "Facebook" },
+                { Icon: Twitter, href: "#", label: "Twitter" },
+                { Icon: Instagram, href: "#", label: "Instagram" },
+                { Icon: Youtube, href: "#", label: "YouTube" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="https://www.facebook.com/groups/759008432624505"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  key={label}
+                  href={href}
+                  target={href !== "#" ? "_blank" : undefined}
+                  rel={href !== "#" ? "noopener noreferrer" : undefined}
+                  aria-label={label}
                   className="bg-green-800 hover:bg-green-700 p-2 rounded-full transition-colors"
                 >
                   <Icon className="h-4 w-4 text-green-300" />

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CheckCircle, Heart, Share2, ArrowRight } from "lucide-react";
-import { Suspense } from "react";
 
 function SuccessContent({ searchParams }: { searchParams: Record<string, string> }) {
   const amount = searchParams.amount || "0";
@@ -64,9 +63,5 @@ export default async function DonationSuccessPage({
   searchParams: Promise<Record<string, string>>;
 }) {
   const params = await searchParams;
-  return (
-    <Suspense>
-      <SuccessContent searchParams={params} />
-    </Suspense>
-  );
+  return <SuccessContent searchParams={params} />;
 }

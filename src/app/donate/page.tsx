@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Heart, Lock, CreditCard, RefreshCw, CheckCircle } from "lucide-react";
+import { Heart, Lock, CreditCard, RefreshCw, CheckCircle, AlertCircle } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -35,16 +35,15 @@ const IMPACT: Record<number, string> = {
   500: "Builds one community composting system",
 };
 
+// clientSecret is injected via the Elements context provider; no need to pass it here.
 function CheckoutForm({
   amount,
   isMonthly,
   campaign,
-  clientSecret,
 }: {
   amount: number;
   isMonthly: boolean;
   campaign: string;
-  clientSecret: string;
 }) {
   const stripe = useStripe();
   const elements = useElements();
@@ -72,13 +71,10 @@ function CheckoutForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <PaymentElement
-        options={{
-          layout: "tabs",
-        }}
-      />
+      <PaymentElement options={{ layout: "tabs" }} />
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-xl p-3">
+        <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-xl p-3 flex items-start gap-2">
+          <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
           {error}
         </div>
       )}
@@ -88,14 +84,9 @@ function CheckoutForm({
         className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 rounded-full text-lg flex items-center justify-center gap-2 transition-colors"
       >
         {loading ? (
-          <>
-            <RefreshCw className="h-5 w-5 animate-spin" /> Processing...
-          </>
+          <><RefreshCw className="h-5 w-5 animate-spin" /> Processing...</>
         ) : (
-          <>
-            <Heart className="h-5 w-5" />
-            {isMonthly ? `Give $${amount}/month` : `Donate $${amount}`}
-          </>
+          <><Heart className="h-5 w-5" />{isMonthly ? `Give $${amount}/month` : `Donate $${amount}`}</>
         )}
       </button>
       <div className="flex items-center justify-center gap-2 text-xs text-gray-400">
@@ -117,14 +108,15 @@ function DonateContent() {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [step, setStep] = useState<"choose" | "pay">("choose");
   const [loadingIntent, setLoadingIntent] = useState(false);
+  const [intentError, setIntentError] = useState<string | null>(null);
 
   const campaignName = campaignId ? (CAMPAIGNS[campaignId] ?? "General Fund") : "General Fund";
-
   const finalAmount = customAmount ? parseFloat(customAmount) : amount;
 
   const handleContinue = async () => {
     if (!finalAmount || finalAmount < 1) return;
     setLoadingIntent(true);
+    setIntentError(null);
     try {
       const res = await fetch("/api/create-payment-intent", {
         method: "POST",
@@ -139,16 +131,23 @@ function DonateContent() {
       if (data.clientSecret) {
         setClientSecret(data.clientSecret);
         setStep("pay");
+      } else {
+        setIntentError(data.error ?? "Failed to initialise payment. Please try again.");
       }
     } catch {
-      console.error("Failed to create payment intent");
+      setIntentError("Network error. Please check your connection and try again.");
     }
     setLoadingIntent(false);
   };
 
+  // Reset the stale payment intent when going back so a fresh one is created next time.
+  const handleBack = () => {
+    setStep("choose");
+    setClientSecret(null);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <section className="bg-gradient-to-br from-green-800 to-emerald-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Heart className="h-10 w-10 mx-auto mb-4 text-green-300" />
@@ -186,11 +185,11 @@ function DonateContent() {
             <div className="p-8">
               {step === "choose" ? (
                 <div className="space-y-6">
-                  {/* One-time vs Monthly */}
                   <div>
                     <p className="text-sm font-medium text-gray-700 mb-3">Donation Frequency</p>
                     <div className="grid grid-cols-2 gap-3">
                       <button
+                        type="button"
                         onClick={() => setIsMonthly(false)}
                         className={`py-3 rounded-xl border-2 text-sm font-semibold transition-colors ${
                           !isMonthly ? "border-green-600 bg-green-50 text-green-700" : "border-gray-200 text-gray-500 hover:border-green-300"
@@ -199,24 +198,27 @@ function DonateContent() {
                         One-time
                       </button>
                       <button
+                        type="button"
                         onClick={() => setIsMonthly(true)}
                         className={`py-3 rounded-xl border-2 text-sm font-semibold transition-colors ${
                           isMonthly ? "border-green-600 bg-green-50 text-green-700" : "border-gray-200 text-gray-500 hover:border-green-300"
                         }`}
                       >
-                        Monthly
-                        <span className="ml-1.5 text-xs bg-green-600 text-white px-1.5 py-0.5 rounded-full">Popular</span>
+                        Monthly{" "}
+                        <span className={`ml-1 text-xs px-1.5 py-0.5 rounded-full ${isMonthly ? "bg-green-600 text-white" : "bg-gray-200 text-gray-600"}`}>
+                          Popular
+                        </span>
                       </button>
                     </div>
                   </div>
 
-                  {/* Preset Amounts */}
                   <div>
                     <p className="text-sm font-medium text-gray-700 mb-3">Select Amount (USD)</p>
                     <div className="grid grid-cols-3 gap-3">
                       {PRESET_AMOUNTS.map((preset) => (
                         <button
                           key={preset}
+                          type="button"
                           onClick={() => { setAmount(preset); setCustomAmount(""); }}
                           className={`py-3 rounded-xl border-2 text-sm font-bold transition-colors ${
                             amount === preset && !customAmount
@@ -230,7 +232,6 @@ function DonateContent() {
                     </div>
                   </div>
 
-                  {/* Custom Amount */}
                   <div>
                     <p className="text-sm font-medium text-gray-700 mb-2">Or enter a custom amount</p>
                     <div className="relative">
@@ -246,17 +247,15 @@ function DonateContent() {
                     </div>
                   </div>
 
-                  {/* Impact Message */}
-                  {(IMPACT[finalAmount] || finalAmount >= 1) && (
+                  {finalAmount >= 1 && (
                     <div className="bg-green-50 border border-green-100 rounded-xl p-4 flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
                       <p className="text-sm text-green-800">
-                        {IMPACT[finalAmount] || `Your $${finalAmount} donation will make a real difference in our programs.`}
+                        {IMPACT[finalAmount] ?? `Your $${finalAmount} donation will make a real difference in our programs.`}
                       </p>
                     </div>
                   )}
 
-                  {/* Summary */}
                   <div className="bg-gray-50 rounded-xl p-4 text-sm space-y-2">
                     <div className="flex justify-between">
                       <span className="text-gray-500">Donation to:</span>
@@ -274,7 +273,15 @@ function DonateContent() {
                     </div>
                   </div>
 
+                  {intentError && (
+                    <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-xl p-3 flex items-start gap-2">
+                      <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                      {intentError}
+                    </div>
+                  )}
+
                   <button
+                    type="button"
                     onClick={handleContinue}
                     disabled={!finalAmount || finalAmount < 1 || loadingIntent}
                     className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 rounded-full text-lg flex items-center justify-center gap-2 transition-colors"
@@ -298,10 +305,7 @@ function DonateContent() {
                       clientSecret,
                       appearance: {
                         theme: "stripe",
-                        variables: {
-                          colorPrimary: "#16a34a",
-                          borderRadius: "12px",
-                        },
+                        variables: { colorPrimary: "#16a34a", borderRadius: "12px" },
                       },
                     }}
                   >
@@ -314,14 +318,10 @@ function DonateContent() {
                       </div>
                       <div className="text-gray-500 text-xs mt-1">To: {campaignName}</div>
                     </div>
-                    <CheckoutForm
-                      amount={finalAmount}
-                      isMonthly={isMonthly}
-                      campaign={campaignName}
-                      clientSecret={clientSecret}
-                    />
+                    <CheckoutForm amount={finalAmount} isMonthly={isMonthly} campaign={campaignName} />
                     <button
-                      onClick={() => setStep("choose")}
+                      type="button"
+                      onClick={handleBack}
                       className="w-full mt-4 text-sm text-gray-400 hover:text-gray-600 transition-colors"
                     >
                       ← Back to amount selection
