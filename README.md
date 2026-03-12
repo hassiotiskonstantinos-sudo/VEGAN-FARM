@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VeganFarm NGO Website
 
-## Getting Started
+A professional NGO website for VeganFarm built with **Next.js 16**, **TypeScript**, **Tailwind CSS**, and **Stripe** payments.
 
-First, run the development server:
+## Features
+
+- **Homepage** — Hero, impact stats, featured campaigns, testimonials, newsletter signup
+- **Campaigns** — Filterable fundraising campaigns with live progress bars
+- **Donate** — 2-step Stripe checkout (one-time & monthly), preset + custom amounts
+- **Projects** — Filterable global project showcase with impact metrics
+- **About** — Mission, team, timeline, accreditations
+- **Contact** — Inquiry form with type selection
+- **Privacy Policy & Terms of Use**
+- Fully responsive, accessible, zero warnings
+
+---
+
+## Local Development
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/hassiotiskonstantinos-sudo/VEGAN-FARM.git
+cd VEGAN-FARM
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+```bash
+cp .env.local.example .env.local
+```
+
+Edit `.env.local` with your Stripe keys (get them from [dashboard.stripe.com](https://dashboard.stripe.com)):
+
+```env
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 5. Test Stripe webhooks locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Install Stripe CLI: https://stripe.com/docs/stripe-cli
+stripe listen --forward-to localhost:3000/api/webhook
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment on Vercel (Recommended)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Option A — One-click via Vercel Dashboard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import this GitHub repository
+3. Add the environment variables:
+   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+   - `STRIPE_SECRET_KEY`
+   - `STRIPE_WEBHOOK_SECRET`
+4. Click **Deploy**
 
-## Deploy on Vercel
+### Option B — Automatic via GitHub Actions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The `.github/workflows/deploy.yml` workflow deploys automatically when you push to `main`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Add the following secrets in **GitHub → Settings → Secrets and variables → Actions**:
+
+| Secret | Where to find it |
+|--------|-----------------|
+| `VERCEL_TOKEN` | [vercel.com/account/tokens](https://vercel.com/account/tokens) |
+| `VERCEL_ORG_ID` | `.vercel/project.json` after running `vercel link` |
+| `VERCEL_PROJECT_ID` | `.vercel/project.json` after running `vercel link` |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | [Stripe Dashboard](https://dashboard.stripe.com/apikeys) |
+| `STRIPE_SECRET_KEY` | [Stripe Dashboard](https://dashboard.stripe.com/apikeys) |
+| `STRIPE_WEBHOOK_SECRET` | [Stripe Dashboard → Webhooks](https://dashboard.stripe.com/webhooks) |
+
+#### Getting Vercel IDs
+
+```bash
+npm i -g vercel
+vercel link   # creates .vercel/project.json with org + project IDs
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx                  # Homepage
+│   ├── about/page.tsx            # About page
+│   ├── campaigns/page.tsx        # Campaigns listing
+│   ├── projects/page.tsx         # Projects listing
+│   ├── contact/page.tsx          # Contact form
+│   ├── donate/
+│   │   ├── page.tsx              # Donation checkout (Stripe)
+│   │   ├── success/page.tsx      # Post-payment success
+│   │   └── cancel/page.tsx       # Payment cancelled
+│   ├── api/
+│   │   ├── create-payment-intent/route.ts   # Stripe PaymentIntent
+│   │   └── webhook/route.ts                 # Stripe webhook handler
+│   ├── privacy/page.tsx
+│   └── terms/page.tsx
+├── components/
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   └── NewsletterForm.tsx
+```
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| Next.js 16 | Full-stack React framework |
+| TypeScript | Type safety |
+| Tailwind CSS | Styling |
+| Stripe | Payment processing |
+| Lucide React | Icons |
+
+---
+
+## Go Live Checklist
+
+- [ ] Replace Stripe **test** keys with **live** keys in production
+- [ ] Set up Stripe webhook endpoint: `https://yourdomain.com/api/webhook`
+- [ ] Update social media links in `Footer.tsx`
+- [ ] Update contact details in `Footer.tsx` and `contact/page.tsx`
+- [ ] Connect newsletter form to your email service (Mailchimp, ConvertKit, etc.)
+- [ ] Add your NGO's real logo/images
+- [ ] Register domain and connect to Vercel
+
+---
+
+## License
+
+MIT — Free to use for non-profit purposes.
