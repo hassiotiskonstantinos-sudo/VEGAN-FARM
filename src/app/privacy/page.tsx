@@ -2,34 +2,34 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white py-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-        <p className="text-gray-400 text-sm mb-10">Last updated: March 2026</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Πολιτική Απορρήτου</h1>
+        <p className="text-gray-400 text-sm mb-10">Τελευταία ενημέρωση: Μάρτιος 2026</p>
 
         <div className="prose prose-gray max-w-none space-y-8">
           {[
             {
-              title: "1. Information We Collect",
-              content: "We collect information you provide directly, such as your name, email address, and payment information when you make a donation. We also collect usage data through cookies and analytics tools to improve our website."
+              title: "1. Πληροφορίες που Συλλέγουμε",
+              content: "Συλλέγουμε πληροφορίες που παρέχεις άμεσα, όπως το όνομά σου και η διεύθυνση email σου όταν κάνεις δωρεά ή επικοινωνείς μαζί μας. Συλλέγουμε επίσης δεδομένα χρήσης μέσω cookies για τη βελτίωση της ιστοσελίδας μας."
             },
             {
-              title: "2. How We Use Your Information",
-              content: "We use your information to process donations, send receipts, provide updates on our programs, and improve our services. We never sell your personal data to third parties."
+              title: "2. Πώς Χρησιμοποιούμε τις Πληροφορίες σου",
+              content: "Χρησιμοποιούμε τις πληροφορίες σου για να επεξεργαστούμε δωρεές, να στείλουμε αποδείξεις, να παρέχουμε ενημερώσεις για τα προγράμματά μας και να βελτιώσουμε τις υπηρεσίες μας. Δεν πωλούμε ποτέ τα προσωπικά σου δεδομένα σε τρίτους."
             },
             {
-              title: "3. Payment Security",
-              content: "All payment processing is handled by Stripe, a PCI-DSS compliant payment processor. We do not store your credit card information on our servers."
+              title: "3. Ασφάλεια Δεδομένων",
+              content: "Λαμβάνουμε κατάλληλα τεχνικά και οργανωτικά μέτρα για την προστασία των προσωπικών σου δεδομένων από μη εξουσιοδοτημένη πρόσβαση ή αποκάλυψη."
             },
             {
-              title: "4. Data Sharing",
-              content: "We may share data with service providers (e.g., email providers, analytics) who help us operate our website and programs. All providers are bound by confidentiality agreements."
+              title: "4. Κοινοποίηση Δεδομένων",
+              content: "Ενδέχεται να μοιραστούμε δεδομένα με παρόχους υπηρεσιών (π.χ. παρόχους email) που μας βοηθούν να λειτουργούμε την ιστοσελίδα μας. Όλοι οι πάροχοι δεσμεύονται από συμφωνίες εμπιστευτικότητας."
             },
             {
-              title: "5. Your Rights",
-              content: "You may request access to, correction of, or deletion of your personal data at any time by contacting us at info@veganfarm.org."
+              title: "5. Τα Δικαιώματά σου",
+              content: "Μπορείς να ζητήσεις πρόσβαση, διόρθωση ή διαγραφή των προσωπικών σου δεδομένων ανά πάσα στιγμή επικοινωνώντας μαζί μας στο info@zografoustray.gr."
             },
             {
-              title: "6. Contact Us",
-              content: "For privacy concerns, email us at privacy@veganfarm.org."
+              title: "6. Επικοινωνία",
+              content: "Για θέματα απορρήτου, επικοινώνησε μαζί μας στο info@zografoustray.gr."
             }
           ].map((section) => (
             <div key={section.title}>

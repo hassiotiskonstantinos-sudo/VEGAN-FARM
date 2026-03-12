@@ -4,13 +4,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "VeganFarm NGO – Sustainable Farming for a Better World",
+  title: "Zografou Stray – Vegan Farm | ΜΚΟ Αδέσποτων Ζωγράφου",
   description:
-    "VeganFarm NGO empowers communities through sustainable vegan farming, education, and compassionate living. Join us in building a greener, kinder world.",
-  keywords: ["vegan farming", "NGO", "sustainable agriculture", "food sovereignty", "donate", "fundraising"],
+    "Η ΜΚΟ Zografou Stray – Vegan Farm περισυλλέγει και φροντίζει αδέσποτα ζώα στον Ζωγράφου Αθήνας. Υιοθεσίες, κτηνιατρική φροντίδα και βιώσιμη αγροτική εκπαίδευση.",
+  keywords: ["αδέσποτα", "Ζωγράφου", "ΜΚΟ", "vegan farm", "υιοθεσία ζώων", "δωρεά", "Αθήνα"],
   openGraph: {
-    title: "VeganFarm NGO",
-    description: "Empowering communities through sustainable vegan farming.",
+    title: "Zografou Stray – Vegan Farm",
+    description: "Περισυλλογή αδέσποτων και βιώσιμη γεωργία στον Ζωγράφου Αθήνας.",
     type: "website",
   },
 };
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="el">
       <body className="antialiased font-sans">
         <Navbar />
         <main>{children}</main>

@@ -18,7 +18,7 @@ export default function NewsletterForm() {
     return (
       <div className="flex items-center justify-center gap-2 text-green-700 font-medium">
         <CheckCircle className="h-5 w-5" />
-        Thanks! You are subscribed.
+        Εγγραφήκατε με επιτυχία!
       </div>
     );
   }
@@ -28,7 +28,7 @@ export default function NewsletterForm() {
       <input
         type="email"
         required
-        placeholder="Enter your email"
+        placeholder="Εισήγαγε το email σου"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         className="flex-1 px-4 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
@@ -37,7 +37,7 @@ export default function NewsletterForm() {
         type="submit"
         className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full text-sm transition-colors whitespace-nowrap"
       >
-        Subscribe
+        Εγγραφή
       </button>
     </form>
   );

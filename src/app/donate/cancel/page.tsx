@@ -10,19 +10,19 @@ export default function DonationCancelPage() {
             <XCircle className="h-12 w-12 text-orange-500" />
           </div>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Donation Cancelled</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">Η Δωρεά Ακυρώθηκε</h1>
         <p className="text-gray-500 mb-8">
-          No worries — your payment was not processed. You can try again whenever you are ready.
+          Δεν πειράζει — η πληρωμή δεν έγινε. Μπορείς να προσπαθήσεις ξανά όποτε είσαι έτοιμος.
         </p>
         <div className="space-y-3">
           <Link
             href="/donate"
             className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full text-sm transition-colors"
           >
-            Try Again <ArrowRight className="h-4 w-4" />
+            Δοκίμασε Ξανά <ArrowRight className="h-4 w-4" />
           </Link>
           <Link href="/" className="block text-sm text-gray-400 hover:text-gray-600 transition-colors">
-            Return to Homepage
+            Επιστροφή στην Αρχική
           </Link>
         </div>
       </div>

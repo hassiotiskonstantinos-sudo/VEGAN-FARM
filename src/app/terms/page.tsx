@@ -2,38 +2,38 @@ export default function TermsPage() {
   return (
     <div className="min-h-screen bg-white py-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Terms of Use</h1>
-        <p className="text-gray-400 text-sm mb-10">Last updated: March 2026</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Όροι Χρήσης</h1>
+        <p className="text-gray-400 text-sm mb-10">Τελευταία ενημέρωση: Μάρτιος 2026</p>
 
         <div className="space-y-8">
           {[
             {
-              title: "1. Acceptance of Terms",
-              content: "By accessing and using the VeganFarm NGO website, you accept and agree to be bound by these Terms of Use."
+              title: "1. Αποδοχή Όρων",
+              content: "Χρησιμοποιώντας την ιστοσελίδα της ΜΚΟ Zografou Stray – Vegan Farm, αποδέχεσαι και συμφωνείς να δεσμεύεσαι από τους παρόντες Όρους Χρήσης."
             },
             {
-              title: "2. Donations",
-              content: "All donations made through this website are voluntary and non-refundable unless required by law. VeganFarm NGO is a registered 501(c)(3) organization, and donations may be tax-deductible. Consult your tax advisor."
+              title: "2. Δωρεές",
+              content: "Όλες οι δωρεές μέσω αυτής της ιστοσελίδας είναι εθελοντικές. Η ΜΚΟ Zografou Stray – Vegan Farm είναι εγγεγραμμένος μη κερδοσκοπικός οργανισμός. Για φορολογικές εκπτώσεις, συμβουλεύσου τον φορολογικό σου σύμβουλο."
             },
             {
-              title: "3. Use of Website",
-              content: "You agree to use this website only for lawful purposes. You must not misuse our website by introducing viruses or attempting to gain unauthorized access to our systems."
+              title: "3. Χρήση Ιστοσελίδας",
+              content: "Συμφωνείς να χρησιμοποιείς αυτή την ιστοσελίδα μόνο για νόμιμους σκοπούς. Απαγορεύεται η εισαγωγή ιών ή οποιαδήποτε απόπειρα μη εξουσιοδοτημένης πρόσβασης στα συστήματά μας."
             },
             {
-              title: "4. Intellectual Property",
-              content: "All content on this website, including text, images, and logos, is the property of VeganFarm NGO and protected by copyright laws."
+              title: "4. Πνευματική Ιδιοκτησία",
+              content: "Όλο το περιεχόμενο αυτής της ιστοσελίδας, συμπεριλαμβανομένων κειμένων, εικόνων και λογοτύπων, ανήκει στην ΜΚΟ Zografou Stray – Vegan Farm και προστατεύεται από νόμους πνευματικής ιδιοκτησίας."
             },
             {
-              title: "5. Disclaimer",
-              content: "This website is provided 'as is'. VeganFarm NGO makes no warranties about the accuracy or reliability of information on this site."
+              title: "5. Αποποίηση Ευθύνης",
+              content: "Η ιστοσελίδα παρέχεται «ως έχει». Η ΜΚΟ δεν εγγυάται την ακρίβεια ή αξιοπιστία των πληροφοριών σε αυτόν τον ιστότοπο."
             },
             {
-              title: "6. Changes to Terms",
-              content: "We reserve the right to update these terms at any time. Continued use of the website constitutes acceptance of the revised terms."
+              title: "6. Αλλαγές στους Όρους",
+              content: "Διατηρούμε το δικαίωμα να ενημερώνουμε αυτούς τους όρους ανά πάσα στιγμή. Η συνέχιση χρήσης της ιστοσελίδας συνιστά αποδοχή των αναθεωρημένων όρων."
             },
             {
-              title: "7. Contact",
-              content: "For questions about these terms, contact us at legal@veganfarm.org."
+              title: "7. Επικοινωνία",
+              content: "Για ερωτήσεις σχετικά με αυτούς τους όρους, επικοινώνησε μαζί μας στο info@zografoustray.gr."
             }
           ].map((section) => (
             <div key={section.title}>

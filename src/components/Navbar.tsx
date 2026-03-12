@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X, PawPrint } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/campaigns", label: "Campaigns" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Αρχική" },
+    { href: "/about", label: "Σχετικά" },
+    { href: "/campaigns", label: "Εκστρατείες" },
+    { href: "/projects", label: "Προγράμματα" },
+    { href: "/contact", label: "Επικοινωνία" },
   ];
 
   return (
@@ -22,10 +22,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="bg-green-600 rounded-full p-1.5">
-              <Leaf className="h-5 w-5 text-white" />
+              <PawPrint className="h-5 w-5 text-white" />
             </div>
-            <span className="font-bold text-xl text-green-800">VeganFarm</span>
-            <span className="text-xs font-medium text-green-600 hidden sm:block bg-green-50 px-2 py-0.5 rounded-full">NGO</span>
+            <div className="leading-tight">
+              <span className="font-bold text-sm sm:text-base text-green-800 block">Zografou Stray</span>
+              <span className="text-xs text-green-600 font-medium block -mt-0.5">Vegan Farm</span>
+            </div>
+            <span className="text-xs font-medium text-green-600 hidden sm:block bg-green-50 px-2 py-0.5 rounded-full">ΜΚΟ</span>
           </Link>
 
           {/* Desktop Links */}
@@ -43,7 +46,7 @@ export default function Navbar() {
               href="/donate"
               className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors"
             >
-              Donate Now
+              Βοήθησε Τώρα
             </Link>
           </div>
 
@@ -51,7 +54,7 @@ export default function Navbar() {
           <button
             className="md:hidden p-2 text-gray-600"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label="Εναλλαγή μενού"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -76,7 +79,7 @@ export default function Navbar() {
                 className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full text-sm font-semibold text-center mt-2 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Donate Now
+                Βοήθησε Τώρα
               </Link>
             </div>
           </div>

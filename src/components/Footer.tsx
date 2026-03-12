@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Leaf, Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { PawPrint, Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,20 +10,20 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="bg-green-400 rounded-full p-1.5">
-                <Leaf className="h-5 w-5 text-green-900" />
+                <PawPrint className="h-5 w-5 text-green-900" />
               </div>
-              <span className="font-bold text-xl text-white">VeganFarm</span>
-              <span className="text-xs font-medium text-green-300 bg-green-800 px-2 py-0.5 rounded-full">NGO</span>
+              <div className="leading-tight">
+                <span className="font-bold text-white block text-sm">Zografou Stray</span>
+                <span className="text-green-300 text-xs block -mt-0.5">Vegan Farm</span>
+              </div>
             </Link>
             <p className="text-green-300 text-sm leading-relaxed mb-4">
-              Empowering communities through sustainable vegan farming, food sovereignty, and compassionate living.
+              Περισυλλογή και φροντίδα αδέσποτων ζώων στον Ζωγράφου. Βιωσιμη κτηνοτροφία χωρίς εκμετάλλευση, με αγάπη για κάθε πλάσμα.
             </p>
             <div className="flex gap-3">
               {[
                 { Icon: Facebook, href: "https://www.facebook.com/groups/759008432624505", label: "Facebook" },
-                { Icon: Twitter, href: "#", label: "Twitter" },
                 { Icon: Instagram, href: "#", label: "Instagram" },
-                { Icon: Youtube, href: "#", label: "YouTube" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -41,14 +41,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-white mb-4">Γρήγοροι Σύνδεσμοι</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { href: "/about", label: "About Us" },
-                { href: "/campaigns", label: "Campaigns" },
-                { href: "/projects", label: "Our Projects" },
-                { href: "/donate", label: "Donate" },
-                { href: "/contact", label: "Contact Us" },
+                { href: "/about", label: "Σχετικά με εμάς" },
+                { href: "/campaigns", label: "Εκστρατείες" },
+                { href: "/projects", label: "Προγράμματά μας" },
+                { href: "/donate", label: "Κάνε δωρεά" },
+                { href: "/contact", label: "Επικοινωνία" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-green-300 hover:text-white transition-colors">
@@ -61,52 +61,52 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Our Programs</h3>
+            <h3 className="font-semibold text-white mb-4">Δράσεις μας</h3>
             <ul className="space-y-2 text-sm text-green-300">
-              <li>Community Gardens</li>
-              <li>Vegan Education</li>
-              <li>Food Rescue & Distribution</li>
-              <li>Farmer Training</li>
-              <li>Environmental Advocacy</li>
-              <li>Youth Outreach</li>
+              <li>Περισυλλογή αδέσποτων</li>
+              <li>Κτηνιατρική φροντίδα</li>
+              <li>Υιοθεσία ζώων</li>
+              <li>Vegan αγρόκτημα</li>
+              <li>Ευαισθητοποίηση κοινού</li>
+              <li>Εκπαίδευση νέων</li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Contact</h3>
+            <h3 className="font-semibold text-white mb-4">Επικοινωνία</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2 text-green-300">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>123 Green Valley Rd,<br />Sustainable City, SC 00000</span>
+                <span>Ζωγράφου, Αθήνα<br />Αττική, Ελλάδα</span>
               </li>
               <li className="flex items-center gap-2 text-green-300">
                 <Mail className="h-4 w-4 shrink-0" />
-                <a href="mailto:info@veganfarm.org" className="hover:text-white transition-colors">
-                  info@veganfarm.org
+                <a href="mailto:info@zografoustray.gr" className="hover:text-white transition-colors">
+                  info@zografoustray.gr
                 </a>
               </li>
               <li className="flex items-center gap-2 text-green-300">
                 <Phone className="h-4 w-4 shrink-0" />
-                <a href="tel:+1234567890" className="hover:text-white transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+302101234567" className="hover:text-white transition-colors">
+                  210 123 4567
                 </a>
               </li>
             </ul>
             <div className="mt-4 p-3 bg-green-800 rounded-lg">
               <p className="text-xs text-green-300">
-                Registered NGO · Tax ID: 12-3456789<br />
-                Donations are tax-deductible
+                Καταχωρημένη ΜΚΟ · ΑΦΜ: 123456789<br />
+                Οι δωρεές είναι φορολογικά εκπεστέες
               </p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-green-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-green-400">
-          <p>© 2026 VeganFarm NGO. All rights reserved.</p>
+          <p>© 2026 Zografou Stray – Vegan Farm ΜΚΟ. Όλα τα δικαιώματα διατηρούνται.</p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Use</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Πολιτική Απορρήτου</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Όροι Χρήσης</Link>
           </div>
         </div>
       </div>

@@ -7,21 +7,21 @@ import { Heart, CheckCircle, AlertCircle, User, Mail, MessageSquare } from "luci
 const PRESET_AMOUNTS = [10, 25, 50, 100, 250, 500];
 
 const CAMPAIGNS: Record<string, string> = {
-  "1": "Community Seed Library",
-  "2": "Vegan Farmer Training Program",
-  "3": "Urban Rooftop Garden Initiative",
-  "4": "School Vegan Gardens Program",
-  "5": "Drought-Resistant Crop Research",
-  "6": "Emergency Food Relief Fund",
+  "1": "Κτηνιατρικό Ταμείο Αδέσποτων",
+  "2": "Vegan Αγρόκτημα Κοινότητας",
+  "3": "Καταφύγιο Αδέσποτων Γάτων",
+  "4": "Εκπαίδευση Παιδιών & Ζώα",
+  "5": "Τρόφιμα για Αδέσποτα Χειμώνα",
+  "6": "Αμαξίδιο για Παράλυτα Ζώα",
 };
 
 const IMPACT: Record<number, string> = {
-  10: "Provides seeds for one family garden",
-  25: "Feeds a family for one week",
-  50: "Funds one day of farmer training",
-  100: "Trains one farmer in sustainable practices",
-  250: "Installs one raised garden bed in a school",
-  500: "Builds one community composting system",
+  10: "Καλύπτει τη διατροφή 5 αδέσποτων για μια εβδομάδα",
+  25: "Χρηματοδοτεί έναν εμβολιασμό και αποπαρασίτωση",
+  50: "Καλύπτει μια αποστείρωση αδέσποτης γάτας",
+  100: "Χρηματοδοτεί επείγουσα κτηνιατρική επίσκεψη",
+  250: "Ξεκινά ένα νέο σταθμό τροφοδοσίας στη γειτονιά",
+  500: "Εξοπλίζει χώρο φιλοξενίας για αδέσποτα",
 };
 
 function DonateContent() {
@@ -38,17 +38,17 @@ function DonateContent() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  const campaignName = campaignId ? (CAMPAIGNS[campaignId] ?? "General Fund") : "General Fund";
+  const campaignName = campaignId ? (CAMPAIGNS[campaignId] ?? "Γενικό Ταμείο") : "Γενικό Ταμείο";
   const finalAmount = customAmount ? parseFloat(customAmount) : amount;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim()) {
-      setError("Please fill in your name and email.");
+      setError("Παρακαλώ συμπλήρωσε το όνομα και το email σου.");
       return;
     }
     if (!finalAmount || finalAmount < 1) {
-      setError("Please select or enter a donation amount.");
+      setError("Παρακαλώ επίλεξε ή εισήγαγε ποσό δωρεάς.");
       return;
     }
     setError("");
@@ -64,33 +64,33 @@ function DonateContent() {
               <CheckCircle className="h-12 w-12 text-green-600" />
             </div>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Thank You, {name}!</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Ευχαριστούμε, {name}!</h1>
           <p className="text-gray-500 mb-6">
-            Your {isMonthly ? "monthly" : ""} pledge of{" "}
-            <span className="font-bold text-green-700">${finalAmount}</span> to{" "}
-            <span className="font-semibold">{campaignName}</span> has been received.
-            We will be in touch at <span className="font-medium">{email}</span> with next steps.
+            Η {isMonthly ? "μηνιαία " : ""}δωρεά σου{" "}
+            <span className="font-bold text-green-700">€{finalAmount}</span> για{" "}
+            <span className="font-semibold">{campaignName}</span> έχει ληφθεί.
+            Θα επικοινωνήσουμε μαζί σου στο <span className="font-medium">{email}</span> με τα επόμενα βήματα.
           </p>
           <div className="bg-green-50 rounded-2xl p-5 text-left space-y-3 mb-6">
-            <p className="text-sm font-bold text-green-800">What happens next?</p>
+            <p className="text-sm font-bold text-green-800">Τι γίνεται στη συνέχεια;</p>
             <div className="flex items-start gap-2 text-sm text-gray-600">
               <Heart className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
-              Our team will contact you within 24 hours with payment instructions.
+              Η ομάδα μας θα επικοινωνήσει μαζί σου εντός 24 ωρών με οδηγίες πληρωμής.
             </div>
             <div className="flex items-start gap-2 text-sm text-gray-600">
               <Heart className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
-              You will receive a receipt and tax deduction certificate.
+              Θα λάβεις απόδειξη και πιστοποιητικό για φορολογική έκπτωση.
             </div>
             <div className="flex items-start gap-2 text-sm text-gray-600">
               <Heart className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
-              {isMonthly ? "Your monthly giving will be set up securely." : "100% of your donation goes directly to programs."}
+              {isMonthly ? "Η μηνιαία δωρεά σου θα ρυθμιστεί με ασφάλεια." : "Το 100% της δωρεάς σου πηγαίνει απευθείας στα ζώα."}
             </div>
           </div>
           <button
             onClick={() => { setSubmitted(false); setName(""); setEmail(""); setMessage(""); setCustomAmount(""); }}
             className="text-sm text-green-600 hover:text-green-700 font-medium"
           >
-            Make another donation
+            Κάνε άλλη δωρεά
           </button>
         </div>
       </div>
@@ -102,9 +102,9 @@ function DonateContent() {
       <section className="bg-gradient-to-br from-green-800 to-emerald-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Heart className="h-10 w-10 mx-auto mb-4 text-green-300" />
-          <h1 className="text-3xl sm:text-4xl font-bold mb-2">Make a Donation</h1>
-          {campaignName !== "General Fund" && (
-            <p className="text-green-200">Supporting: <span className="font-semibold text-white">{campaignName}</span></p>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">Κάνε Δωρεά</h1>
+          {campaignName !== "Γενικό Ταμείο" && (
+            <p className="text-green-200">Για: <span className="font-semibold text-white">{campaignName}</span></p>
           )}
         </div>
       </section>
@@ -113,9 +113,8 @@ function DonateContent() {
         <div className="max-w-xl mx-auto px-4">
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 space-y-6">
 
-            {/* Frequency */}
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-3">Donation Frequency</p>
+              <p className="text-sm font-medium text-gray-700 mb-3">Συχνότητα Δωρεάς</p>
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
@@ -124,7 +123,7 @@ function DonateContent() {
                     !isMonthly ? "border-green-600 bg-green-50 text-green-700" : "border-gray-200 text-gray-500 hover:border-green-300"
                   }`}
                 >
-                  One-time
+                  Εφάπαξ
                 </button>
                 <button
                   type="button"
@@ -133,17 +132,16 @@ function DonateContent() {
                     isMonthly ? "border-green-600 bg-green-50 text-green-700" : "border-gray-200 text-gray-500 hover:border-green-300"
                   }`}
                 >
-                  Monthly{" "}
+                  Μηνιαία{" "}
                   <span className={`ml-1 text-xs px-1.5 py-0.5 rounded-full ${isMonthly ? "bg-green-600 text-white" : "bg-gray-200 text-gray-600"}`}>
-                    Popular
+                    Δημοφιλής
                   </span>
                 </button>
               </div>
             </div>
 
-            {/* Preset Amounts */}
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-3">Select Amount (USD)</p>
+              <p className="text-sm font-medium text-gray-700 mb-3">Επίλεξε Ποσό (€)</p>
               <div className="grid grid-cols-3 gap-3">
                 {PRESET_AMOUNTS.map((preset) => (
                   <button
@@ -156,21 +154,20 @@ function DonateContent() {
                         : "border-gray-200 text-gray-600 hover:border-green-300"
                     }`}
                   >
-                    ${preset}
+                    €{preset}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Custom Amount */}
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-2">Or enter a custom amount</p>
+              <p className="text-sm font-medium text-gray-700 mb-2">Ή εισήγαγε δικό σου ποσό</p>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">$</span>
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">€</span>
                 <input
                   type="number"
                   min="1"
-                  placeholder="Enter amount"
+                  placeholder="Ποσό"
                   value={customAmount}
                   onChange={(e) => setCustomAmount(e.target.value)}
                   className="w-full pl-8 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
@@ -178,28 +175,26 @@ function DonateContent() {
               </div>
             </div>
 
-            {/* Impact */}
             {finalAmount >= 1 && (
               <div className="bg-green-50 border border-green-100 rounded-xl p-4 flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
                 <p className="text-sm text-green-800">
-                  {IMPACT[finalAmount] ?? `Your $${finalAmount} donation will make a real difference in our programs.`}
+                  {IMPACT[finalAmount] ?? `Η δωρεά σου €${finalAmount} θα κάνει πραγματική διαφορά στη ζωή των αδέσποτων.`}
                 </p>
               </div>
             )}
 
             <hr className="border-gray-100" />
 
-            {/* Personal Details */}
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-3">Your Details</p>
+              <p className="text-sm font-medium text-gray-700 mb-3">Τα Στοιχεία σου</p>
               <div className="space-y-3">
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                   <input
                     type="text"
                     required
-                    placeholder="Full Name"
+                    placeholder="Ονοματεπώνυμο"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
@@ -210,7 +205,7 @@ function DonateContent() {
                   <input
                     type="email"
                     required
-                    placeholder="Email Address"
+                    placeholder="Διεύθυνση Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
@@ -220,7 +215,7 @@ function DonateContent() {
                   <MessageSquare className="absolute left-3 top-3.5 h-4 w-4 text-gray-400" />
                   <textarea
                     rows={3}
-                    placeholder="Message (optional)"
+                    placeholder="Μήνυμα (προαιρετικό)"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm resize-none"
@@ -229,20 +224,19 @@ function DonateContent() {
               </div>
             </div>
 
-            {/* Summary */}
             <div className="bg-gray-50 rounded-xl p-4 text-sm space-y-2">
               <div className="flex justify-between">
-                <span className="text-gray-500">Donation to:</span>
+                <span className="text-gray-500">Δωρεά για:</span>
                 <span className="font-medium text-gray-800">{campaignName}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Frequency:</span>
-                <span className="font-medium text-gray-800">{isMonthly ? "Monthly" : "One-time"}</span>
+                <span className="text-gray-500">Συχνότητα:</span>
+                <span className="font-medium text-gray-800">{isMonthly ? "Μηνιαία" : "Εφάπαξ"}</span>
               </div>
               <div className="flex justify-between border-t border-gray-200 pt-2">
-                <span className="font-semibold text-gray-800">Amount:</span>
+                <span className="font-semibold text-gray-800">Ποσό:</span>
                 <span className="font-bold text-green-700 text-base">
-                  ${finalAmount || "—"}{isMonthly ? "/month" : ""}
+                  €{finalAmount || "—"}{isMonthly ? "/μήνα" : ""}
                 </span>
               </div>
             </div>
@@ -259,11 +253,11 @@ function DonateContent() {
               className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-full text-lg flex items-center justify-center gap-2 transition-colors"
             >
               <Heart className="h-5 w-5" />
-              {isMonthly ? `Pledge $${finalAmount || "—"}/month` : `Donate $${finalAmount || "—"}`}
+              {isMonthly ? `Δωρεά €${finalAmount || "—"}/μήνα` : `Δώρισε €${finalAmount || "—"}`}
             </button>
 
             <p className="text-xs text-gray-400 text-center">
-              Our team will contact you within 24 hours to complete your donation securely.
+              Η ομάδα μας θα επικοινωνήσει μαζί σου εντός 24 ωρών για να ολοκληρώσει τη δωρεά σου με ασφάλεια.
             </p>
           </form>
         </div>
@@ -274,7 +268,7 @@ function DonateContent() {
 
 export default function DonatePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Loading...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Φόρτωση...</div>}>
       <DonateContent />
     </Suspense>
   );
