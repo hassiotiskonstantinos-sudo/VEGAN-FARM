@@ -78,46 +78,44 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section className="bg-gradient-to-br from-green-800 via-green-700 to-emerald-600 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16 sm:py-20">
-            {/* Text */}
-            <div>
-              <span className="inline-block bg-green-500/30 border border-green-400/40 text-green-100 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-wide">
-                ΜΚΟ · Ζωγράφου, Αθήνα
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Κάθε Ζώο<br />
-                <span className="text-green-300">Αξίζει Αγάπη</span><br />
-                και Φροντίδα
-              </h1>
-              <p className="text-lg sm:text-xl text-green-100 mb-8 leading-relaxed">
-                Η ΜΚΟ Zografou Stray – Vegan Farm περισυλλέγει και φροντίζει αδέσποτα ζώα
-                στον Ζωγράφου Αθήνας. Υιοθεσίες, κτηνιατρική φροντίδα, και βιώσιμο αγρόκτημα
-                για μια καλύτερη κοινότητα.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/donate" className="bg-white text-green-700 hover:bg-green-50 font-bold px-8 py-4 rounded-full text-lg text-center transition-colors">
-                  Κάνε Δωρεά
-                </Link>
-                <Link href="/campaigns" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full text-lg text-center transition-colors">
-                  Δες τις Εκστρατείες
-                </Link>
-              </div>
-            </div>
-            {/* Photo — full image visible */}
-            <div className="flex items-center justify-center">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 w-full max-w-lg">
-                <Image
-                  src="/images/vegan-farm-collage.jpeg"
-                  alt="Vegan Farm — τα ζώα και η ομάδα μας"
-                  width={600}
-                  height={800}
-                  className="w-full h-auto object-contain"
-                  priority
-                />
-              </div>
-            </div>
+        {/* Text */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10 text-center">
+          <span className="inline-block bg-green-500/30 border border-green-400/40 text-green-100 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-wide">
+            ΜΚΟ · Ζωγράφου, Αθήνα
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Κάθε Ζώο{" "}
+            <span className="text-green-300">Αξίζει Αγάπη</span>{" "}
+            και Φροντίδα
+          </h1>
+          <p className="text-lg sm:text-xl text-green-100 mb-8 leading-relaxed max-w-2xl mx-auto">
+            Η ΜΚΟ Zografou Stray – Vegan Farm περισυλλέγει και φροντίζει αδέσποτα ζώα
+            στον Ζωγράφου Αθήνας. Υιοθεσίες, κτηνιατρική φροντίδα, και βιώσιμο αγρόκτημα
+            για μια καλύτερη κοινότητα.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/donate" className="bg-white text-green-700 hover:bg-green-50 font-bold px-8 py-4 rounded-full text-lg text-center transition-colors">
+              Κάνε Δωρεά
+            </Link>
+            <Link href="/campaigns" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full text-lg text-center transition-colors">
+              Δες τις Εκστρατείες
+            </Link>
           </div>
+        </div>
+
+        {/* Full-width collage */}
+        <div className="grid grid-cols-4 gap-0 h-72 sm:h-96">
+          {[
+            { src: "https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=600&q=80", alt: "Σκύλος σε καταφύγιο" },
+            { src: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80", alt: "Διασωσμένα σκυλιά" },
+            { src: "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=600&q=80", alt: "Σκύλος σε καταφύγιο" },
+            { src: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&q=80", alt: "Διασωσμένο κουτάβι" },
+          ].map((img, i) => (
+            <div key={i} className="relative overflow-hidden">
+              <Image src={img.src} alt={img.alt} fill className="object-cover" priority={i < 2} />
+              <div className="absolute inset-0 bg-green-900/20" />
+            </div>
+          ))}
         </div>
       </section>
 
