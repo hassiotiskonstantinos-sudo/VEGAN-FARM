@@ -4,15 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, PawPrint } from "lucide-react";
 
-export default function Navbar() {
+export default function NavbarEn() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { href: "/", label: "Αρχική" },
-    { href: "/about", label: "Σχετικά" },
-    { href: "/campaigns", label: "Εκστρατείες" },
-    { href: "/projects", label: "Προγράμματα" },
-    { href: "/contact", label: "Επικοινωνία" },
+    { href: "/en", label: "Home" },
+    { href: "/en/about", label: "About" },
+    { href: "/en/campaigns", label: "Campaigns" },
+    { href: "/en/projects", label: "Programs" },
+    { href: "/en/contact", label: "Contact" },
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/en" className="flex items-center gap-2">
             <div className="bg-green-600 rounded-full p-1.5">
               <PawPrint className="h-5 w-5 text-white" />
             </div>
@@ -28,7 +28,7 @@ export default function Navbar() {
               <span className="font-bold text-sm sm:text-base text-green-800 block">Zografou Stray</span>
               <span className="text-xs text-green-600 font-medium block -mt-0.5">Vegan Farm</span>
             </div>
-            <span className="text-xs font-medium text-green-600 hidden sm:block bg-green-50 px-2 py-0.5 rounded-full">ΜΚΟ</span>
+            <span className="text-xs font-medium text-green-600 hidden sm:block bg-green-50 px-2 py-0.5 rounded-full">NGO</span>
           </Link>
 
           {/* Desktop Links */}
@@ -43,16 +43,16 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/donate"
+              href="/en/donate"
               className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors"
             >
-              Βοήθησε Τώρα
+              Donate Now
             </Link>
             <Link
-              href="/en"
+              href="/"
               className="text-xs font-semibold text-gray-400 hover:text-green-700 border border-gray-200 px-2 py-1 rounded-full transition-colors"
             >
-              🇬🇧 EN
+              🇬🇷 ΕΛ
             </Link>
           </div>
 
@@ -60,7 +60,7 @@ export default function Navbar() {
           <button
             className="md:hidden p-2 text-gray-600"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Εναλλαγή μενού"
+            aria-label="Toggle menu"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -81,11 +81,14 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/donate"
+                href="/en/donate"
                 className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full text-sm font-semibold text-center mt-2 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Βοήθησε Τώρα
+                Donate Now
+              </Link>
+              <Link href="/" className="text-center text-sm text-gray-400 hover:text-green-700 font-medium">
+                🇬🇷 Ελληνικά
               </Link>
             </div>
           </div>

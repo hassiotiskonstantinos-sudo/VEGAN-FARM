@@ -2,13 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Heart, Leaf, Users, Globe, ArrowRight, Award, BookOpen, Sprout } from "lucide-react";
 
-const team = [
-  { name: "Μαρία Παπαδοπούλου", role: "Ιδρύτρια & Διευθύντρια", bio: "Από το 2019 στην πρώτη γραμμή για τα αδέσποτα και τα διασωσμένα ζώα.", image: "/images/founder-with-lamb.jpeg" },
-  { name: "Νίκος Αλεξίου", role: "Υπεύθυνος Προγραμμάτων", bio: "Κτηνίατρος εθελοντής και συνεργάτης σε 3 ΜΚΟ.", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" },
-  { name: "Ελένη Σταυρίδου", role: "Κοινωνική Δράση", bio: "Οργανώτρια εθελοντισμού και υπεύθυνη επικοινωνίας.", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" },
-  { name: "Κώστας Δημητρίου", role: "Αγρόκτημα & Εκπαίδευση", bio: "Vegan αγρότης με 8 χρόνια εμπειρία σε βιολογική καλλιέργεια.", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" },
-];
-
 const values = [
   { icon: Leaf, title: "Βιωσιμότητα", desc: "Ζούμε και δρούμε σε αρμονία με τη φύση, προστατεύοντας τα οικοσυστήματα." },
   { icon: Heart, title: "Συμπόνια", desc: "Αγάπη για τα ζώα, τους ανθρώπους και τον πλανήτη καθοδηγεί κάθε μας απόφαση." },
@@ -149,27 +142,6 @@ export default function AboutPage() {
                 Η εκδήλωση πραγματοποιήθηκε στις <strong>5 Δεκεμβρίου 2025</strong> στο Συνεδριακό Κέντρο Εθνικής Ασφαλιστικής, Λεωφόρος Συγγρού 103, Αθήνα — Παγκόσμια Ημέρα Εθελοντή.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-green-600 font-semibold text-sm uppercase tracking-wide">Οι Άνθρωποί μας</span>
-            <h2 className="text-3xl font-bold text-gray-900 mt-2">Η Ομάδα μας</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member) => (
-              <div key={member.name} className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 relative">
-                  <Image src={member.image} alt={member.name} fill className="object-cover" />
-                </div>
-                <h3 className="font-bold text-gray-900">{member.name}</h3>
-                <p className="text-green-600 text-sm font-medium mb-2">{member.role}</p>
-                <p className="text-gray-500 text-sm">{member.bio}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
