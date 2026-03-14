@@ -56,9 +56,26 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-green-800 via-green-700 to-emerald-600 text-white overflow-hidden">
-        {/* Text */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10 text-center">
+      <section className="relative text-white overflow-hidden min-h-[600px] sm:min-h-[700px] flex items-center">
+        {/* Background collage — 4 real rescued animals */}
+        <div className="absolute inset-0 grid grid-cols-2 sm:grid-cols-4">
+          {[
+            { src: "/images/pigs-farm.jpeg", alt: "Διασωσμένα χοιρινά από παράνομο εκτροφείο" },
+            { src: "/images/goats-shelter.jpeg", alt: "Διασωσμένες κατσίκες από φωτιά" },
+            { src: "https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=600&q=80", alt: "Διασωσμένος σκύλος σε καταφύγιο" },
+            { src: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80", alt: "Διασωσμένα σκυλιά" },
+          ].map((img, i) => (
+            <div key={i} className="relative overflow-hidden">
+              <Image src={img.src} alt={img.alt} fill className="object-cover" priority={i < 2} />
+            </div>
+          ))}
+        </div>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-green-950/70" />
+
+        {/* Text overlay */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <span className="inline-block bg-green-500/30 border border-green-400/40 text-green-100 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-wide">
             ΜΚΟ · Ζωγράφου, Αθήνα
           </span>
@@ -80,21 +97,6 @@ export default function Home() {
               Δες τις Εκστρατείες
             </Link>
           </div>
-        </div>
-
-        {/* Full-width collage */}
-        <div className="grid grid-cols-4 gap-0 h-72 sm:h-96">
-          {[
-            { src: "https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=600&q=80", alt: "Σκύλος σε καταφύγιο" },
-            { src: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80", alt: "Διασωσμένα σκυλιά" },
-            { src: "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=600&q=80", alt: "Σκύλος σε καταφύγιο" },
-            { src: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&q=80", alt: "Διασωσμένο κουτάβι" },
-          ].map((img, i) => (
-            <div key={i} className="relative overflow-hidden">
-              <Image src={img.src} alt={img.alt} fill className="object-cover" priority={i < 2} />
-              <div className="absolute inset-0 bg-green-900/20" />
-            </div>
-          ))}
         </div>
       </section>
 
