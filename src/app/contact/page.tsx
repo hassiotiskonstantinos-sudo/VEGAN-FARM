@@ -67,6 +67,22 @@ export default function ContactPage() {
                 })}
               </div>
 
+              <div className="bg-blue-50 rounded-2xl p-5 border border-blue-100">
+                <h3 className="font-bold text-gray-900 mb-1">Τραπεζική Κατάθεση</h3>
+                <div className="space-y-2 mt-3">
+                  {[
+                    { label: "Δικαιούχος", value: "Φιλοζωϊκός Σύλλογος Ζωγράφου Αττικής – Αδεσποτάκια Ζωγράφου" },
+                    { label: "Τράπεζα", value: "Τράπεζα Πειραιώς" },
+                    { label: "IBAN", value: "GR19 0171 0130 0060 1316 9879 105" },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <p className="text-xs text-blue-400 font-medium uppercase tracking-wide">{item.label}</p>
+                      <p className="text-gray-800 text-xs font-medium break-all">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div className="bg-green-50 rounded-2xl p-5 border border-green-100">
                 <h3 className="font-bold text-gray-900 mb-2">Ακολούθησέ μας</h3>
                 <p className="text-sm text-gray-500 mb-3">Γίνε μέλος της κοινότητάς μας στο Facebook.</p>

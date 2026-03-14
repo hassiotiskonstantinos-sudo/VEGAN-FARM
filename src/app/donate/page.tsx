@@ -2,7 +2,7 @@
 
 import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Heart, CheckCircle, AlertCircle, User, Mail, MessageSquare } from "lucide-react";
+import { Heart, CheckCircle, AlertCircle, User, Mail, MessageSquare, Copy, Landmark } from "lucide-react";
 
 const PRESET_AMOUNTS = [10, 25, 50, 100, 250, 500];
 
@@ -264,6 +264,31 @@ function DonateContent() {
               Η ομάδα μας θα επικοινωνήσει μαζί σου εντός 24 ωρών για να ολοκληρώσει τη δωρεά σου με ασφάλεια.
             </p>
           </form>
+
+          <div className="mt-6 bg-blue-50 border border-blue-100 rounded-2xl p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <Landmark className="h-5 w-5 text-blue-600 shrink-0" />
+              <h3 className="font-bold text-blue-900">Απευθείας Τραπεζική Κατάθεση</h3>
+            </div>
+            <p className="text-sm text-blue-700 mb-4">
+              Μπορείς να κάνεις κατάθεση απευθείας στον τραπεζικό λογαριασμό μας:
+            </p>
+            <div className="space-y-3">
+              {[
+                { label: "Δικαιούχος", value: "Φιλοζωϊκός Σύλλογος Ζωγράφου Αττικής – Αδεσποτάκια Ζωγράφου" },
+                { label: "Τράπεζα", value: "Τράπεζα Πειραιώς" },
+                { label: "IBAN", value: "GR19 0171 0130 0060 1316 9879 105" },
+              ].map((item) => (
+                <div key={item.label} className="bg-white rounded-xl px-4 py-3 border border-blue-100">
+                  <p className="text-xs text-blue-400 font-medium uppercase tracking-wide mb-0.5">{item.label}</p>
+                  <p className="text-gray-800 font-medium text-sm break-all">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-blue-500 mt-3">
+              Στην αιτιολογία γράψε το όνομά σου και την εκστρατεία που θέλεις να στηρίξεις.
+            </p>
+          </div>
         </div>
       </section>
     </div>

@@ -165,16 +165,16 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-3xl overflow-hidden h-48 relative">
-                <Image src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=80" alt="Σκύλος αδέσποτος" fill className="object-cover" />
+                <Image src="/images/woman-with-lamb.jpg" alt="Εθελόντρια με αρνάκι" fill className="object-cover" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 relative mt-8">
-                <Image src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=400&q=80" alt="Γάτα αδέσποτη" fill className="object-cover" />
+                <Image src="/images/cat-in-garden.jpg" alt="Γάτα στον κήπο" fill className="object-cover" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 relative">
-                <Image src="https://images.unsplash.com/photo-1500076656116-558758c991c1?w=400&q=80" alt="Vegan αγρόκτημα" fill className="object-cover" />
+                <Image src="/images/goat-feeding.jpg" alt="Κατσικάκι στο αγρόκτημα" fill className="object-cover" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 relative mt-8">
-                <Image src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80" alt="Λαχανικά αγρόκτημα" fill className="object-cover" />
+                <Image src="/images/baby-goat-hay.jpg" alt="Μικρό κατσικάκι" fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -245,14 +245,14 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
+              { src: "/images/vegan-farm-collage.jpg", alt: "Vegan Farm — η ομάδα μας" },
+              { src: "/images/woman-with-lamb.jpg", alt: "Εθελόντρια με αρνάκι" },
+              { src: "/images/baby-goat-hay.jpg", alt: "Μικρό κατσικάκι" },
+              { src: "/images/goat-feeding.jpg", alt: "Κατσίκα στο αγρόκτημα" },
+              { src: "/images/cat-in-garden.jpg", alt: "Γάτα στον κήπο του αγροκτήματος" },
               { src: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80", alt: "Σκύλος περισυλλογή" },
               { src: "https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=400&q=80", alt: "Γατάκια φροντίδα" },
-              { src: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80", alt: "Αγρόκτημα" },
-              { src: "https://images.unsplash.com/photo-1444930694458-01babf71870c?w=400&q=80", alt: "Εθελοντές" },
-              { src: "https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400&q=80", alt: "Σκύλος υιοθεσία" },
-              { src: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80", alt: "Γάτα" },
-              { src: "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=400&q=80", alt: "Λαχανικά" },
-              { src: "https://images.unsplash.com/photo-1593100126453-19b562a800c1?w=400&q=80", alt: "Σκύλος παιχνίδι" },
+              { src: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80", alt: "Σκύλος υιοθεσία" },
             ].map((img, i) => (
               <div key={i} className="relative h-40 rounded-xl overflow-hidden">
                 <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-300" />

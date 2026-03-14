@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Heart, Leaf, Users, Globe, ArrowRight, Award, BookOpen, Sprout } from "lucide-react";
 
 const team = [
-  { name: "Μαρία Παπαδοπούλου", role: "Διευθύντρια ΜΚΟ", bio: "10+ χρόνια στην προστασία αδέσποτων και τη vegan ζωή.", image: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=200&q=80" },
+  { name: "Μαρία Παπαδοπούλου", role: "Ιδρύτρια & Διευθύντρια", bio: "Από το 2019 στην πρώτη γραμμή για τα αδέσποτα και τα διασωσμένα ζώα.", image: "/images/woman-with-lamb.jpg" },
   { name: "Νίκος Αλεξίου", role: "Υπεύθυνος Προγραμμάτων", bio: "Κτηνίατρος εθελοντής και συνεργάτης σε 3 ΜΚΟ.", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" },
   { name: "Ελένη Σταυρίδου", role: "Κοινωνική Δράση", bio: "Οργανώτρια εθελοντισμού και υπεύθυνη επικοινωνίας.", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" },
   { name: "Κώστας Δημητρίου", role: "Αγρόκτημα & Εκπαίδευση", bio: "Vegan αγρότης με 8 χρόνια εμπειρία σε βιολογική καλλιέργεια.", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" },
@@ -31,8 +31,8 @@ export default function AboutPage() {
       <section className="bg-gradient-to-br from-green-800 to-emerald-700 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&q=80"
-            alt="Αδέσποτα ζώα"
+            src="/images/vegan-farm-collage.jpg"
+            alt="Vegan Farm — η ομάδα και τα ζώα μας"
             fill
             className="object-cover"
           />
