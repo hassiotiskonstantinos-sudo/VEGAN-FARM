@@ -21,9 +21,10 @@ const milestones = [
 export default function AboutEnPage() {
   return (
     <div>
-      <section className="bg-gradient-to-br from-green-800 to-emerald-700 text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative text-white py-20 overflow-hidden">
+        <div className="absolute inset-0">
           <Image src="/images/vegan-farm-collage.jpeg" alt="Vegan Farm — our team and animals" fill className="object-cover" />
+          <div className="absolute inset-0 bg-green-950/70" />
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <span className="inline-block bg-green-500/30 border border-green-400/40 text-green-100 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 
 const inquiryTypes = [
@@ -22,8 +23,12 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <section className="bg-gradient-to-br from-green-800 to-emerald-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative text-white py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/cat-garden.jpeg" alt="" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-green-950/70" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-green-500/30 border border-green-400/40 text-green-100 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
             Επικοινωνία
           </span>
