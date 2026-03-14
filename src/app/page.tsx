@@ -80,8 +80,8 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-green-800 via-green-700 to-emerald-600 text-white overflow-hidden min-h-[560px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=1600&q=80"
-            alt="Αδέσποτα ζώα"
+            src="/images/vegan-farm-collage.jpeg"
+            alt="Vegan Farm — τα ζώα και η ομάδα μας"
             fill
             className="object-cover opacity-20"
             priority
@@ -165,16 +165,16 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-3xl overflow-hidden h-48 relative">
-                <Image src="/images/woman-with-lamb.jpg" alt="Εθελόντρια με αρνάκι" fill className="object-cover" />
+                <Image src="/images/founder-with-lamb.jpeg" alt="Ιδρύτρια με αρνάκι" fill className="object-cover" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 relative mt-8">
-                <Image src="/images/cat-in-garden.jpg" alt="Γάτα στον κήπο" fill className="object-cover" />
+                <Image src="/images/cat-garden.jpeg" alt="Γάτα στον κήπο" fill className="object-cover" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 relative">
-                <Image src="/images/goat-feeding.jpg" alt="Κατσικάκι στο αγρόκτημα" fill className="object-cover" />
+                <Image src="/images/goat-handfed.jpeg" alt="Κατσίκα στο αγρόκτημα" fill className="object-cover" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 relative mt-8">
-                <Image src="/images/baby-goat-hay.jpg" alt="Μικρό κατσικάκι" fill className="object-cover" />
+                <Image src="/images/baby-goat.jpeg" alt="Μικρό κατσικάκι" fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -245,14 +245,14 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { src: "/images/vegan-farm-collage.jpg", alt: "Vegan Farm — η ομάδα μας" },
-              { src: "/images/woman-with-lamb.jpg", alt: "Εθελόντρια με αρνάκι" },
-              { src: "/images/baby-goat-hay.jpg", alt: "Μικρό κατσικάκι" },
-              { src: "/images/goat-feeding.jpg", alt: "Κατσίκα στο αγρόκτημα" },
-              { src: "/images/cat-in-garden.jpg", alt: "Γάτα στον κήπο του αγροκτήματος" },
-              { src: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80", alt: "Σκύλος περισυλλογή" },
-              { src: "https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=400&q=80", alt: "Γατάκια φροντίδα" },
-              { src: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80", alt: "Σκύλος υιοθεσία" },
+              { src: "/images/vegan-farm-collage.jpeg", alt: "Vegan Farm — η ομάδα μας" },
+              { src: "/images/founder-with-lamb.jpeg", alt: "Ιδρύτρια με αρνάκι" },
+              { src: "/images/sheep-farm.jpeg", alt: "Πρόβατα στο αγρόκτημα" },
+              { src: "/images/goats-shelter.jpeg", alt: "Κατσίκες στο στάβλο" },
+              { src: "/images/pigs-farm.jpeg", alt: "Χοιρινά στο αγρόκτημα" },
+              { src: "/images/cat-garden.jpeg", alt: "Γάτα στον κήπο" },
+              { src: "/images/goat-handfed.jpeg", alt: "Κατσίκα χειροτροφία" },
+              { src: "/images/baby-goat.jpeg", alt: "Μικρό κατσικάκι" },
             ].map((img, i) => (
               <div key={i} className="relative h-40 rounded-xl overflow-hidden">
                 <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-300" />

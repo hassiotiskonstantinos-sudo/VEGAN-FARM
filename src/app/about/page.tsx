@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Heart, Leaf, Users, Globe, ArrowRight, Award, BookOpen, Sprout } from "lucide-react";
 
 const team = [
-  { name: "Μαρία Παπαδοπούλου", role: "Ιδρύτρια & Διευθύντρια", bio: "Από το 2019 στην πρώτη γραμμή για τα αδέσποτα και τα διασωσμένα ζώα.", image: "/images/woman-with-lamb.jpg" },
+  { name: "Μαρία Παπαδοπούλου", role: "Ιδρύτρια & Διευθύντρια", bio: "Από το 2019 στην πρώτη γραμμή για τα αδέσποτα και τα διασωσμένα ζώα.", image: "/images/founder-with-lamb.jpeg" },
   { name: "Νίκος Αλεξίου", role: "Υπεύθυνος Προγραμμάτων", bio: "Κτηνίατρος εθελοντής και συνεργάτης σε 3 ΜΚΟ.", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" },
   { name: "Ελένη Σταυρίδου", role: "Κοινωνική Δράση", bio: "Οργανώτρια εθελοντισμού και υπεύθυνη επικοινωνίας.", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" },
   { name: "Κώστας Δημητρίου", role: "Αγρόκτημα & Εκπαίδευση", bio: "Vegan αγρότης με 8 χρόνια εμπειρία σε βιολογική καλλιέργεια.", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" },
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-br from-green-800 to-emerald-700 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="/images/vegan-farm-collage.jpg"
+            src="/images/vegan-farm-collage.jpeg"
             alt="Vegan Farm — η ομάδα και τα ζώα μας"
             fill
             className="object-cover"
@@ -116,6 +116,38 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="text-yellow-600 font-semibold text-sm uppercase tracking-wide">Αναγνώριση</span>
+            <h2 className="text-3xl font-bold text-gray-900 mt-2">Βραβεία & Διακρίσεις</h2>
+          </div>
+          <div className="bg-yellow-50 border border-yellow-100 rounded-3xl p-8 flex flex-col md:flex-row gap-8 items-center">
+            <div className="w-full md:w-48 shrink-0 rounded-2xl overflow-hidden border border-yellow-200 shadow-sm">
+              <Image
+                src="/images/award-ministry.jpeg"
+                alt="Βράβευση από Υπουργείο Εσωτερικών"
+                width={200}
+                height={280}
+                className="object-cover w-full"
+              />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="h-6 w-6 text-yellow-600 shrink-0" />
+                <span className="font-bold text-yellow-800 text-lg">Βράβευση «Ηρωικές Καρδιές» 2025</span>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                Ο φορέας μας <strong>Vegan Farm Animal Liberation</strong> βραβεύτηκε από την <strong>Ειδική Γραμματεία για την Προστασία Ζώων Συντροφίας</strong> του Υπουργείου Εσωτερικών, στην 1η Επίσημη Εκδήλωση «Ηρωικές Καρδιές».
+              </p>
+              <p className="text-gray-600 text-sm">
+                Η εκδήλωση πραγματοποιήθηκε στις <strong>5 Δεκεμβρίου 2025</strong> στο Συνεδριακό Κέντρο Εθνικής Ασφαλιστικής, Λεωφόρος Συγγρού 103, Αθήνα — Παγκόσμια Ημέρα Εθελοντή.
+              </p>
             </div>
           </div>
         </div>
