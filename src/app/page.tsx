@@ -77,38 +77,45 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-green-800 via-green-700 to-emerald-600 text-white overflow-hidden min-h-[560px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/vegan-farm-collage.jpeg"
-            alt="Vegan Farm — τα ζώα και η ομάδα μας"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
-          <div className="max-w-3xl">
-            <span className="inline-block bg-green-500/30 border border-green-400/40 text-green-100 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-wide">
-              ΜΚΟ · Ζωγράφου, Αθήνα
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Κάθε Ζώο<br />
-              <span className="text-green-300">Αξίζει Αγάπη</span><br />
-              και Φροντίδα
-            </h1>
-            <p className="text-lg sm:text-xl text-green-100 mb-8 leading-relaxed">
-              Η ΜΚΟ Zografou Stray – Vegan Farm περισυλλέγει και φροντίζει αδέσποτα ζώα
-              στον Ζωγράφου Αθήνας. Υιοθεσίες, κτηνιατρική φροντίδα, και βιώσιμο αγρόκτημα
-              για μια καλύτερη κοινότητα.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/donate" className="bg-white text-green-700 hover:bg-green-50 font-bold px-8 py-4 rounded-full text-lg text-center transition-colors">
-                Κάνε Δωρεά
-              </Link>
-              <Link href="/campaigns" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full text-lg text-center transition-colors">
-                Δες τις Εκστρατείες
-              </Link>
+      <section className="bg-gradient-to-br from-green-800 via-green-700 to-emerald-600 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16 sm:py-20">
+            {/* Text */}
+            <div>
+              <span className="inline-block bg-green-500/30 border border-green-400/40 text-green-100 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-wide">
+                ΜΚΟ · Ζωγράφου, Αθήνα
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Κάθε Ζώο<br />
+                <span className="text-green-300">Αξίζει Αγάπη</span><br />
+                και Φροντίδα
+              </h1>
+              <p className="text-lg sm:text-xl text-green-100 mb-8 leading-relaxed">
+                Η ΜΚΟ Zografou Stray – Vegan Farm περισυλλέγει και φροντίζει αδέσποτα ζώα
+                στον Ζωγράφου Αθήνας. Υιοθεσίες, κτηνιατρική φροντίδα, και βιώσιμο αγρόκτημα
+                για μια καλύτερη κοινότητα.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/donate" className="bg-white text-green-700 hover:bg-green-50 font-bold px-8 py-4 rounded-full text-lg text-center transition-colors">
+                  Κάνε Δωρεά
+                </Link>
+                <Link href="/campaigns" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full text-lg text-center transition-colors">
+                  Δες τις Εκστρατείες
+                </Link>
+              </div>
+            </div>
+            {/* Photo — full image visible */}
+            <div className="flex items-center justify-center">
+              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 w-full max-w-lg">
+                <Image
+                  src="/images/vegan-farm-collage.jpeg"
+                  alt="Vegan Farm — τα ζώα και η ομάδα μας"
+                  width={600}
+                  height={800}
+                  className="w-full h-auto object-contain"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
