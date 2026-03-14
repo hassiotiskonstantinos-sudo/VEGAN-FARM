@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, PawPrint, Users, Home as HomeIcon, ArrowRight, CheckCircle, TrendingUp, Star } from "lucide-react";
+import { Heart, PawPrint, Users, Home as HomeIcon, ArrowRight, CheckCircle, TrendingUp } from "lucide-react";
 import NewsletterForm from "@/components/NewsletterForm";
 
 const stats = [
@@ -40,27 +40,6 @@ const campaigns = [
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
     category: "Υποδομή",
     urgent: true,
-  },
-];
-
-const testimonials = [
-  {
-    name: "Μαρία Κ.",
-    role: "Εθελόντρια",
-    quote: "Χάρη στο Zografou Stray βρήκα την αδερφή μου — τη σκυλίτσα μου Ρόζα. Η δουλειά που κάνουν αυτοί οι άνθρωποι είναι εκπληκτική.",
-    stars: 5,
-  },
-  {
-    name: "Γιώργης Π.",
-    role: "Γονέας",
-    quote: "Τα παιδιά μου έμαθαν τη σημασία της φροντίδας των ζώων μέσα από το πρόγραμμα του αγροκτήματος. Αξέχαστη εμπειρία!",
-    stars: 5,
-  },
-  {
-    name: "Ελένη Σ.",
-    role: "Γείτονας",
-    quote: "Επιτέλους μια οργάνωση που κάνει πράγματα στη γειτονιά μας. Τα αδέσποτα φροντίζονται και η κοινότητα ενώνεται.",
-    stars: 5,
   },
 ];
 
@@ -279,35 +258,6 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/donate" className="bg-white text-green-700 hover:bg-green-50 font-bold px-10 py-4 rounded-full text-lg transition-colors">Εφάπαξ Δωρεά</Link>
             <Link href="/donate?type=monthly" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-10 py-4 rounded-full text-lg transition-colors">Μηνιαία Στήριξη</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-green-600 font-semibold text-sm uppercase tracking-wide">Ιστορίες</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Τι Λένε οι Άνθρωποί μας</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-gray-700 italic mb-4">&ldquo;{t.quote}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="bg-green-100 rounded-full h-10 w-10 flex items-center justify-center text-green-700 font-bold">{t.name[0]}</div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
-                    <p className="text-gray-400 text-xs">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
