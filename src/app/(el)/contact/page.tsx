@@ -53,8 +53,8 @@ export default function ContactPage() {
               <div className="space-y-4">
                 {[
                   { icon: MapPin, label: "Διεύθυνση", value: "Ζωγράφου, Αθήνα 15772" },
-                  { icon: Mail, label: "Email", value: "info@zografoustray.gr" },
-                  { icon: Phone, label: "Τηλέφωνο", value: "210 123 4567" },
+                  { icon: Mail, label: "Email", value: "info.veganfarm@yahoo.com" },
+                  { icon: Phone, label: "Τηλέφωνο", value: "+30 694 015 3275" },
                   { icon: Clock, label: "Ώρες", value: "Δευ–Παρ: 10πμ–6μμ" },
                 ].map((item) => {
                   const Icon = item.icon;

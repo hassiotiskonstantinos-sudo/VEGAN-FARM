@@ -53,8 +53,8 @@ export default function ContactEnPage() {
               <div className="space-y-4">
                 {[
                   { icon: MapPin, label: "Address", value: "Zografou, Athens 15772" },
-                  { icon: Mail, label: "Email", value: "info@zografoustray.gr" },
-                  { icon: Phone, label: "Phone", value: "+30 210 123 4567" },
+                  { icon: Mail, label: "Email", value: "info.veganfarm@yahoo.com" },
+                  { icon: Phone, label: "Phone", value: "+30 694 015 3275" },
                   { icon: Clock, label: "Hours", value: "Mon–Fri: 10am–6pm" },
                 ].map((item) => {
                   const Icon = item.icon;

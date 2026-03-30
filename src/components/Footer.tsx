@@ -82,14 +82,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-green-300">
                 <Mail className="h-4 w-4 shrink-0" />
-                <a href="mailto:info@zografoustray.gr" className="hover:text-white transition-colors">
-                  info@zografoustray.gr
+                <a href="mailto:info.veganfarm@yahoo.com" className="hover:text-white transition-colors">
+                  info.veganfarm@yahoo.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-green-300">
                 <Phone className="h-4 w-4 shrink-0" />
-                <a href="tel:+302101234567" className="hover:text-white transition-colors">
-                  210 123 4567
+                <a href="tel:+306940153275" className="hover:text-white transition-colors">
+                  +30 694 015 3275
                 </a>
               </li>
             </ul>

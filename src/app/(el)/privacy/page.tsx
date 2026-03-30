@@ -25,11 +25,11 @@ export default function PrivacyPage() {
             },
             {
               title: "5. Τα Δικαιώματά σου",
-              content: "Μπορείς να ζητήσεις πρόσβαση, διόρθωση ή διαγραφή των προσωπικών σου δεδομένων ανά πάσα στιγμή επικοινωνώντας μαζί μας στο info@zografoustray.gr."
+              content: "Μπορείς να ζητήσεις πρόσβαση, διόρθωση ή διαγραφή των προσωπικών σου δεδομένων ανά πάσα στιγμή επικοινωνώντας μαζί μας στο info.veganfarm@yahoo.com."
             },
             {
               title: "6. Επικοινωνία",
-              content: "Για θέματα απορρήτου, επικοινώνησε μαζί μας στο info@zografoustray.gr."
+              content: "Για θέματα απορρήτου, επικοινώνησε μαζί μας στο info.veganfarm@yahoo.com."
             }
           ].map((section) => (
             <div key={section.title}>

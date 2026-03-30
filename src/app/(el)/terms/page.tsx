@@ -33,7 +33,7 @@ export default function TermsPage() {
             },
             {
               title: "7. Επικοινωνία",
-              content: "Για ερωτήσεις σχετικά με αυτούς τους όρους, επικοινώνησε μαζί μας στο info@zografoustray.gr."
+              content: "Για ερωτήσεις σχετικά με αυτούς τους όρους, επικοινώνησε μαζί μας στο info.veganfarm@yahoo.com."
             }
           ].map((section) => (
             <div key={section.title}>
